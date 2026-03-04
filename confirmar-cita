@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Confirmar cita</title>
+
+<style>
+
+body{
+font-family: Arial, Helvetica, sans-serif;
+background:#f5f5f5;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+margin:0;
+}
+
+.card{
+background:white;
+padding:40px;
+border-radius:12px;
+box-shadow:0 10px 30px rgba(0,0,0,0.1);
+text-align:center;
+width:320px;
+}
+
+h1{
+font-size:22px;
+margin-bottom:10px;
+}
+
+p{
+color:#555;
+margin-bottom:30px;
+}
+
+button{
+background:#25D366;
+color:white;
+border:none;
+padding:18px 35px;
+font-size:18px;
+border-radius:8px;
+cursor:pointer;
+}
+
+button:hover{
+background:#1ebe5d;
+}
+
+.ok{
+display:none;
+}
+
+.check{
+font-size:50px;
+color:#25D366;
+margin-bottom:15px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="card" id="confirmacion">
+
+<h1>Confirmar cita</h1>
+
+<p>Pulse el botón para confirmar su cita.</p>
+
+<button onclick="confirmar()">Confirmar cita</button>
+
+</div>
+
+
+<div class="card ok" id="ok">
+
+<div class="check">✔</div>
+
+<h1>Cita confirmada</h1>
+
+<p>Gracias. Le esperamos en la clínica.</p>
+
+</div>
+
+
+<script>
+
+function confirmar(){
+
+const params = new URLSearchParams(window.location.search);
+const row = params.get("row");
+
+fetch("https://hook.eu2.make.com/3kxim12b99iqulb6a1sjht363p76mu7m?row="+row);
+
+document.getElementById("confirmacion").style.display="none";
+document.getElementById("ok").style.display="block";
+
+}
+
+</script>
+
+</body>
+</html>
